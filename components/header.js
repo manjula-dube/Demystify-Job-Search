@@ -18,10 +18,18 @@ export default class Header extends React.Component {
   render() {
    
     return (
-      <View>
-        
+      <View style={styles.header}>
+        <Text style={styles.headerText}>This will header section</Text>
       </View>
     );
   }
 }
 
+const styles = StyleSheet.create({
+  header: {
+    backgroundColor: 'gray',
+  },
+  headerText:{
+    fontSize:12
+  }
+});
