@@ -7,6 +7,7 @@ This project was bootstrapped with [Create React Native App](https://github.com/
 - [x] Create a header component - without design
 - [x] Create a card container component - without design
 - [x] Create a basic search component - without design
+- [ ] ScrollView Integration
 - [ ] Create a basic card component - without design(Image,name,decription)
 - [ ] Create seperate styles for each component (No inline styles)
 - [ ] Using fetch render the data (Image name description)
