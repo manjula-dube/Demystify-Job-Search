@@ -20,3 +20,4 @@ This project was bootstrapped with [Create React Native App](https://github.com/
 - [ ] oAuth development
 - [ ] Detail view page (Add route)
 - [ ] Lazy load cards on scrolling (https://github.com/magicismight/react-native-lazyload)
+- [ ] Try nativebase http://nativebase.io/docs/v2.0.0/components#searchBar
