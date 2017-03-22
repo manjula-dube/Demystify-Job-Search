@@ -21,6 +21,7 @@ export default class App extends React.Component {
 
 const styles = StyleSheet.create({
   container: {
+    flex:1 // the master container has to be flex 1
   },
   viewOne:{
     flexDirection: 'row',

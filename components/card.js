@@ -1,11 +1,8 @@
 import React from 'react';
-import {  StyleSheet, Image, Text, View, TouchableHighlight,ScrollView,FlatList,ActivityIndicator} from 'react-native';
+import {  StyleSheet, Image, Text, View, TouchableHighlight,ScrollView,ActivityIndicator,ListView} from 'react-native';
 import  getJobDetails from '../util/api'
 
-
-
-// .
-
+const jobs = [];
 export default class Card extends React.Component {
   onPress(){
     console.log('hi');
@@ -13,16 +10,19 @@ export default class Card extends React.Component {
 
   constructor(props) {
     super(props);
+    const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
     this.state = {
-      jobs:[],
+      dataSource: ds.cloneWithRows(jobs),
       isLoading : true
     };
   }
 
   componentDidMount() {
   getJobDetails().then((jobs) => {
-        this.setState({jobs});
-        this.setState({isLoading:false})
+        this.setState({
+          dataSource : this.state.dataSource.cloneWithRows(jobs),
+          isLoading:false
+        });
     })
   }
 
@@ -37,26 +37,20 @@ export default class Card extends React.Component {
     )
   }
 
-  renderJobList() {
+  renderJobList(rowData,sectionID,rowID) {
     return (
       <ScrollView>
         <View style={styles.parentCardContainer}>
-          {
-            this.state.jobs.map(({ company_logo, title, description },index) => {
-                return(
-                <View key={index} style={styles.cardContainer}>
+              <View key={rowID} style={styles.cardContainer}>
                    <View style={styles.JobImage}>
-                        <Image source={{uri: company_logo}}
+                        <Image source={{uri: rowData.company_logo}}
                         style={{width: 60, height: 60}} />
                   </View>
                   <View style={styles.Description}>
-                    <Text style={styles.heading}>{title} </Text>
-                    <Text adjustsFontSizeToFit={true} numberOfLines={4} style={styles.textColor}>{description}</Text> 
+                    <Text style={styles.heading}>{rowData.title} </Text>
+                    <Text adjustsFontSizeToFit={true} numberOfLines={4} style={styles.textColor}>{rowData.description.replace(/<\/?[^>]+>/gi, '')}</Text> 
                   </View> 
                 </View>  
-                ) 
-            })
-         }
         </View> 
       </ScrollView> 
 
@@ -68,7 +62,8 @@ export default class Card extends React.Component {
       return(this.renderLoading())
     }
     else{
-      return(this.renderJobList())
+      return (<ListView dataSource={this.state.dataSource} 
+        renderRow={this.renderJobList.bind(this)}/>)
     }
   }
 }
