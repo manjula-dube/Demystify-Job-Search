@@ -19,3 +19,4 @@ This project was bootstrapped with [Create React Native App](https://github.com/
 - [ ] On SignIn open Modal
 - [ ] oAuth development
 - [ ] Detail view page (Add route)
+- [ ] Lazy load cards on scrolling 
