@@ -14,4 +14,7 @@ This project was bootstrapped with [Create React Native App](https://github.com/
 - [x] Style using Flex box
 - [x] Use ListView instead of view
 - [x] Use Activity Indicator for loader until you get response
-- [ ] Replace the api later
+- [ ] Replace the api 
+- [ ] Search functionality 
+- [ ] On SignIn open Modal
+- [ ] oAuth development
