@@ -1,28 +1,34 @@
 import React from 'react';
 import {  StyleSheet, Image, Text, View } from 'react-native';
-import MyButton from './components/Button';
+import Header from './components/header';
+import Search from './components/search';
 import Card from './components/card';
-import Form from './components/form';
 
 
 export default class App extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text>Search Your Jobs</Text>
-        <Form/>
+        <View style={[styles.viewContainer,styles.viewOne]}>
+          <Header/>
+        </View>
+        <Search/>
         <Card/>
-      </View>
+       </View>
     );
   }
 }
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    backgroundColor: 'white',
-    alignItems: 'center',
-    justifyContent: 'center',
   },
+  viewOne:{
+    flexDirection: 'row',
+    backgroundColor:'white'
+  },
+  viewContainer:{
+     justifyContent: 'center',
+     alignItems: 'flex-start'
+  }
 });
 
