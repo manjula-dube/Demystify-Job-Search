@@ -18,3 +18,4 @@ This project was bootstrapped with [Create React Native App](https://github.com/
 - [ ] Search functionality 
 - [ ] On SignIn open Modal
 - [ ] oAuth development
+- [ ] Detail view page (Add route)
