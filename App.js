@@ -14,10 +14,12 @@ export default class App extends React.Component {
         </View>
         <Search/>
         <Card/>
-       </View> 
+       </View>  
     );
   }
 }
+
+
 
 const styles = StyleSheet.create({
   container: {

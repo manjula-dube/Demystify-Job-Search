@@ -6,9 +6,9 @@ export default class Search extends React.Component {
 
   constructor(props) {
     super(props);
-    this.state = {
-      name : "Start looking for jobs here"
-    }
+    // this.state = {
+    //   name : "Start looking for jobs here"
+    // }
   }
 
   onSubmit(){
